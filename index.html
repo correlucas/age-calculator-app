@@ -8,7 +8,7 @@
 
   <title>Front End Project | correlucas</title>
 
-  <link rel="icon" href="./images/favicon-32x32.png" type="image/x-icon">
+  <link rel="icon" href="./assets/images/favicon-32x32.png" type="image/x-icon">
 
   <link rel="stylesheet" href="./scss/style.css">
 </head>
@@ -19,18 +19,36 @@
       <fieldset>
         <legend class="sr-only">Fill with your birthday</legend>
 
-        <label for="day">Day:</label>
-        <input type="number" id="day" name="day" min="1" max="31" required>
+        <div>
+          <label class="heading-s" for="day">Day:</label>
+          <input type="number" id="day" name="day" placeholder="DD" min="1" max="31" required>
+          <p class="error-message">Must be a valid day</p>
+        </div>
+        <div>
+          <label class="heading-s" for="month">Month:</label>
+          <input type="number" id="month" placeholder="MM" name="month" min="1" max="12" required>
+          <p class="error-message">Must be a valid month</p>
+        </div>
+        <div>
+          <label class="heading-s" for="year">Year:</label>
+          <input type="number" id="year" placeholder="YY" name="year" min="1900" max="2099" required>
+          <p class="error-message">Must be in the past</p>
+        </div>
 
-        <label for="month">Month:</label>
-        <input type="number" id="month" name="month" min="1" max="12" required>
-
-        <label for="year">Year:</label>
-        <input type="number" id="year" name="year" min="1900" max="2099" required>
       </fieldset>
-
-      <button type="submit">Enviar</button>
     </form>
+
+    <hr>
+    <div class="btn">
+      <button>
+        <img src="./assets/images/icon-arrow.svg" alt="Button send">
+      </button>
+    </div>
+    <div class="output">
+      <h2 class="heading-l"><span>--</span> years</h2>
+      <h2 class="heading-l"><span>--</span> months</h2>
+      <h2 class="heading-l"><span>--</span> days</h2>
+    </div>
   </main>
 
 

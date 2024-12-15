@@ -1,6 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
 @import "reset";
 @import "colors";
 @import "mixins";
+@import "typography";
 @import "mediaQueries";
 @import "animations";
 
@@ -8,7 +11,167 @@ body {
   min-height: 100vh;
   line-height: 1.3;
   text-rendering: optimizeSpeed;
-  font-family: "Josefin Sans", sans-serif;
+  background: $lightGrey;
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading-s {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  color: $darkGrey;
+
+  @include display(tablet) {
+    display: none;
+  }
+}
+
+.heading-m {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+}
+
+.heading-l {
+  font-family: Poppins;
+  font-size: 104px;
+  font-style: italic;
+  font-weight: 800;
+  line-height: 110%; /* 114.4px */
+  letter-spacing: -2.08px;
+
+  @include display(tablet) {
+    font-size: 56px;
+  }
+}
+
+main {
+  background: $white;
+  width: 840px;
+  padding: 56px;
+  border-radius: 24px 24px 200px 24px;
+  position: relative;
+
+  @include display(tablet) {
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 24px 24px 100px 24px;
+    margin: 20px;
+  }
+}
+
+fieldset {
+  @include simpleFlex(unset, unset);
+  gap: 32px;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+  margin-inline: 0;
+
+  div {
+    min-width: 25%;
+  }
+
+  @include display(tablet) {
+    gap: 16px;
+  }
+}
+
+form {
+  padding-bottom: 48px;
+}
+
+input {
+  border-radius: 8px;
+  padding: 24px 12px;
+  width: 100%;
+  border: 1px solid $lightGrey;
+  font-family: Poppins;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0.32px;
+  color: $offBlack;
+  border: 2px solid $smokeyGrey;
+
+  @include display(tablet) {
+    font-size: 22px;
+  }
+
+  &:focus {
+    outline: none;
+    border: 2px solid $lightRed;
+  }
+
+  &::placeholder {
+    @include simpleFlex(center, center);
+    font-family: Poppins;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.32px;
+    color: darkGrey;
+    @include display(tablet) {
+      font-size: 22px;
+    }
+  }
+}
+
+.error-message {
+  padding-top: 8px;
+  color: $lightRed;
+
+  @include display(tablet) {
+    font-size: 12px;
+  }
+}
+
+.output {
+  transform: translateY(-50px);
+}
+
+span {
+  color: $purple;
+}
+
+.btn {
+  @include simpleFlex(unset, flex-end);
+  transform: translateY(-47px);
+  @include display(tablet) {
+    @include simpleFlex(unset, center);
+    transform: translateY(-56px);
+  }
+}
+
+button {
+  padding: 26px;
+  background-color: $purple;
+  cursor: pointer;
+  transition: 0.5s;
+  border-radius: 100%;
+  &:hover {
+    background-color: $offBlack;
+    transition: 0.5s;
+  }
+  @include display(tablet) {
+    padding: 12px;
+    margin: 20px;
+  }
+}
+
+hr {
+  color: $lightRed;
+  width: 100%;
 }
 
 .sr-only {
