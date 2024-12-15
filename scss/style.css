@@ -291,6 +291,7 @@ input::placeholder {
 }
 
 .error-message {
+  display: none;
   padding-top: 8px;
   color: hsl(0, 100%, 67%);
 }
