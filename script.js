@@ -3,14 +3,12 @@
 const myYears = document.getElementById('myYears');
 const myMonths = document.getElementById('myMonths');
 const myDays = document.getElementById('myDays');
-
-
-console.log(day);
+const button = document.getElementById('button');
 
 function calcAge() {
-  const day = document.getElementById('day').value = 23;
-  const month = document.getElementById('month').value = 8;
-  const year = document.getElementById('year').value = 1991;
+  const day = parseInt(document.getElementById('day').value);
+  const month = parseInt(document.getElementById('month').value);
+  const year = parseInt(document.getElementById('year').value);
 
   // if (isNaN(day) || isNaN(month) || isNaN(year)) {
   //   alert('Insert a correct date');
@@ -22,9 +20,27 @@ function calcAge() {
   const currentYear = currentDate.getFullYear();
 
   // calculate the difference between years
-  let ageYear = currentDate.getFullYear() - dateOfBirth.getFullYear();
-  console.log(ageYear)
-  return
+  let years = currentDate.getFullYear() - dateOfBirth.getFullYear();
+  let months = currentDate.getMonth() - dateOfBirth.getMonth();
+  let days = currentDate.getDate() - dateOfBirth.getDate();
+
+  if (days > 31) {
+    days = 0;
+    months += 1;
+  }
+
+
+
+  if (months < 0) {
+    years -= 1;
+    months += 12;
+  }
+
+  myYears.innerText = years;
+  myMonths.innerText = months;
+  myDays.innerText = days;
+
+  return;
 }
 
-calcAge(1991);
+button.addEventListener('click', calcAge)
