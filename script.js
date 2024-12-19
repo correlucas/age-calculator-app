@@ -10,37 +10,51 @@ function calcAge() {
   const month = parseInt(document.getElementById('month').value);
   const year = parseInt(document.getElementById('year').value);
 
-  // if (isNaN(day) || isNaN(month) || isNaN(year)) {
-  //   alert('Insert a correct date');
-  // }
-  // to get the birth date
-  const dateOfBirth = new Date(year, month - 1, day);
-  // to get the current year
-  const currentDate = new Date();
-  const currentYear = currentDate.getFullYear();
-
-  // calculate the difference between years
-  let years = currentDate.getFullYear() - dateOfBirth.getFullYear();
-  let months = currentDate.getMonth() - dateOfBirth.getMonth();
-  let days = currentDate.getDate() - dateOfBirth.getDate();
-
-  if (days > 31) {
-    days = 0;
-    months += 1;
+  if (isNaN(day) || isNaN(month) || isNaN(year)) {
+    alert('Insert a correct date');
+    return;
   }
 
+  // to get the birth date
+  const dateOfBirth = new Date(year, month - 1, day);
+
+  // Check if is a valid date
+  if (dateOfBirth.getDate() !== day || dateOfBirth.getMonth() !== month - 1 || dateOfBirth.getFullYear() !== year) {
+    alert('Insert a valid date');
+    return;
+  }
+
+  // to get the current date
+  const today = new Date();
 
 
+  // check if date is a future day
+  if (dateOfBirth > today) {
+    alert('Insert a correct date');
+    return;
+  }
+
+  // calculate the difference between the date
+  let years = today.getFullYear() - dateOfBirth.getFullYear();
+  let months = today.getMonth() - dateOfBirth.getMonth();
+  let days = today.getDate() - dateOfBirth.getDate();
+
+  //adjust if the days difference is negative
+  if (days < 0) {
+    months -= 1;
+    days += new Date(today.getFullYear(), today.getMonth(), 0).getDate();
+  }
+
+  //adjust if the months difference is negative
   if (months < 0) {
     years -= 1;
     months += 12;
   }
 
+  //update output
   myYears.innerText = years;
   myMonths.innerText = months;
   myDays.innerText = days;
-
-  return;
 }
 
-button.addEventListener('click', calcAge)
+button.addEventListener('click', calcAge);
