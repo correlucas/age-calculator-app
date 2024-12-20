@@ -255,7 +255,7 @@ input {
 }
 input:focus {
   outline: none;
-  border: 2px solid hsl(0, 100%, 67%);
+  border: 2px solid hsl(259, 100%, 65%);
 }
 input::-moz-placeholder {
   display: flex;
@@ -288,6 +288,10 @@ input::placeholder {
   input::placeholder {
     font-size: 22px;
   }
+}
+
+.input-error {
+  border: 2px solid hsl(0, 100%, 67%);
 }
 
 .error-message {

@@ -109,7 +109,7 @@ input {
 
   &:focus {
     outline: none;
-    border: 2px solid $lightRed;
+    border: 2px solid $purple;
   }
 
   &::placeholder {
@@ -125,6 +125,10 @@ input {
       font-size: 22px;
     }
   }
+}
+
+.input-error {
+  border: 2px solid $lightRed;
 }
 
 .error-message {
