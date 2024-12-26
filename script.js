@@ -18,7 +18,7 @@ function validateField(input, errorElement, labelElement, min, max, emptyMessage
   if (input.value.trim() === '') {
     errorElement.style.display = 'block';
     errorElement.textContent = emptyMessage;
-    labelElement.style.color = 'hsl(0, 100%, 67%)';
+    showError(errorElement, labelElement, emptyMessage);
     input.classList.add('input-error');
     return false;
   } else if (isNaN(value) || value < min || value > max) {
